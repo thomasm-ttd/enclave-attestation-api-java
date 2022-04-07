@@ -6,4 +6,5 @@ runs:
     - name: Import GPG key 
       shell: bash
       run: |
-        echo -n "$GPG_SIGNING_KEY" | base64 --decode | gpg --batch --import
+        echo -n "$GPG_SIGNING_KEY" | base64 --decode > private.key 
+        gpg --batch --import private.key
