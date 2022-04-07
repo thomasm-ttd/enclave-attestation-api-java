@@ -1,8 +1,9 @@
 name: Setup Dependancies
-
-permissions:
-  contents: read
-  pull-requests: write
+inputs:
+  key:
+    descriptions: 'The Key to be imported'
+    required: true
+    type: string
 
 runs:
   using: "composite"
@@ -13,4 +14,4 @@ runs:
         echo -n "$GPG_SIGNING_KEY" | base64 --decode > private.key 
         gpg --batch --import private.key
       env:
-        GPG_SIGNING_KEY: ${{ secrets.GPG_KEY }}
+        GPG_SIGNING_KEY: ${{ inputs.key }}

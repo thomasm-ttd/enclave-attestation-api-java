@@ -8,3 +8,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/workflows/download_gpg_key
+        with:
+          key: ${{ secrets.GPG_KEY }}
