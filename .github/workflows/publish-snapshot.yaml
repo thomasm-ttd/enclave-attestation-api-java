@@ -7,4 +7,4 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/workflows/download_gpg_keys
+      - uses: ./.github/workflows/download_gpg_key
