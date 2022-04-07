@@ -8,6 +8,10 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Setup settings.xml
+      shell: bash
+      run: |
+        echo "<settings>\n<servers>\n<server>\n<id>${repo.id}</id>\n<username>${repo.login}</username>\n<password>${repo.pwd}</password>\n</server>\n</servers>\n</settings>" > ~/.m2/settings.xml
     - name: Import GPG key 
       shell: bash
       run: |
